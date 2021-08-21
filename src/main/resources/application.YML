@@ -1,0 +1,14 @@
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/public?serverTimezone=UTC}
+    username: ${DB_USERNAME:Koria}
+    password: ${DB_PASSWORD:Supernew*190}
+
+  flyway:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/public?serverTimezone=UTC}
+    user: ${DB_USERNAME:Koria}
+    password: ${DB_PASSWORD:Supernew*190}
+    enabled: true
+    schemas: public
+    locations: classpath:db/migration
