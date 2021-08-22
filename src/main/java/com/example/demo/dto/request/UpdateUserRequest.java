@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UpdateClientRequest extends CreateClientRequest {
+public class UpdateUserRequest extends CreateUserRequest {
     private Integer id;
 }

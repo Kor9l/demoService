@@ -1,13 +1,12 @@
 package com.example.demo.domain;
 
-import com.example.demo.Role;
+import com.example.demo.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor

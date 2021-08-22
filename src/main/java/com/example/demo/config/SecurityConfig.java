@@ -20,7 +20,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-
     private final UserPrincipalDetailsService userPrincipalDetailsService;
 
     private static final String ADMIN_ENDPOINTS = "/api/admin/**";
@@ -46,17 +45,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                    .csrf()
-                    .disable()
-                    .authorizeRequests()
-                    .antMatchers(ADMIN_ENDPOINTS)
-                    .hasRole("ADMIN")
-                    .anyRequest()
-                    .authenticated()
+                .csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers(ADMIN_ENDPOINTS)
+                .hasRole("ADMIN")
+                .anyRequest()
+                .authenticated()
                 .and()
-                    .httpBasic()
+                .httpBasic()
                 .and()
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 }

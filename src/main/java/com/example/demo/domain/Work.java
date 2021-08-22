@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @NoArgsConstructor
 @Entity
@@ -21,6 +20,4 @@ public class Work {
     @Column(nullable = false)
     private Double price;
 
-    @OneToMany(mappedBy = "work")
-    private Set<OrderWorks> orderWorks;
 }

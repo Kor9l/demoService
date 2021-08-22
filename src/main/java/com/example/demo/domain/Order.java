@@ -1,12 +1,10 @@
 package com.example.demo.domain;
 
-import com.example.demo.OrderStatus;
-
+import com.example.demo.enums.OrderStatus;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @NoArgsConstructor
 @Entity
@@ -29,21 +27,16 @@ public class Order {
     private Long lastModifiedBy;
 
     @ManyToOne
-    @JoinColumn(name = "lastModifiedBy", nullable = false, updatable = false,  insertable = false)
+    @JoinColumn(name = "lastModifiedBy", nullable = false, updatable = false, insertable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "clientId", nullable = false, updatable = false,  insertable = false)
+    @JoinColumn(name = "clientId", nullable = false, updatable = false, insertable = false)
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "technicId", nullable = false, updatable = false,  insertable = false)
+    @JoinColumn(name = "technicId", nullable = false, updatable = false, insertable = false)
     private Technic technic;
 
-    @OneToMany(mappedBy = "order")
-    private Set<OrderWorks> orderWorks;
-
-    @OneToMany(mappedBy = "order")
-    private Set<OrderParts> orderParts;
 
 }

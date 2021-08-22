@@ -1,7 +1,5 @@
 package com.example.demo.domain;
 
-import lombok.Data;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -48,7 +46,7 @@ public class Client {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)

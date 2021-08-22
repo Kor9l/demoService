@@ -1,8 +1,8 @@
 package com.example.demo.security;
 
 
-import com.example.demo.Role;
 import com.example.demo.domain.User;
+import com.example.demo.enums.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

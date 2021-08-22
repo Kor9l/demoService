@@ -1,8 +1,8 @@
 package com.example.demo.security;
 
 
-import com.example.demo.Role;
 import com.example.demo.domain.User;
+import com.example.demo.enums.Role;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,9 +15,7 @@ import java.util.List;
 public final class UserFactory {
 
 
-
-
-        public static UserDetails create(User user) {
+    public static UserDetails create(User user) {
         return new UserPrincipal(
                 user.getId(),
                 user.getEmail(),

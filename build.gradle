@@ -6,10 +6,10 @@ plugins {
 }
 
 flyway {
-	url = 'jdbc:mysql://localhost:3306/service?serverTimezone=UTC'
+	url = 'jdbc:mysql://localhost:3306/public?serverTimezone=UTC'
 	user = 'Koria'
 	password = 'Supernew*190'
-	schemas = ['service']
+	schemas = ['public']
 	placeholders = [
 			'classpath': 'db/migration'
 	]
@@ -39,6 +39,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.20'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.3'
 	testImplementation 'org.springframework.security:spring-security-test:5.5.1'
 }

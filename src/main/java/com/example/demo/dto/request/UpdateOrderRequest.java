@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class UpdateClientRequest extends CreateClientRequest {
+public class UpdateOrderRequest extends CreateOrderRequest {
     private Integer id;
 }

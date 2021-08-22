@@ -13,7 +13,7 @@ public interface ClientService {
 
     void create(CreateClientRequest createClientRequest);
 
-     ClientResponse search(SearchClientRequest searchClientRequest);
+    ClientResponse search(SearchClientRequest searchClientRequest);
 
     ClientResponse update(UpdateClientRequest updateClientRequest);
 }
