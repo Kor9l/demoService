@@ -17,13 +17,13 @@ public class UserAdminController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<MessageResponse> add(@RequestBody CreateUserRequest createUserRequest) {
+    public ResponseEntity<MessageResponse> create(@RequestBody CreateUserRequest createUserRequest) {
         userService.create(createUserRequest);
         return new ResponseEntity<>(new MessageResponse("Created successfully"), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageResponse> delete(@PathVariable Long id) {
+    public ResponseEntity<MessageResponse> deleteById(@PathVariable Long id) {
         userService.deleteById(id);
         return new ResponseEntity<>(new MessageResponse("Delete successfully"), HttpStatus.OK);
     }

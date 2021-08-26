@@ -26,7 +26,7 @@ public class Technic {
     private Brand brand;
 
     @OneToMany(mappedBy = "technic")
-    private Set<Order> orders;
+    private Set<Orders> orders;
 
 }
 

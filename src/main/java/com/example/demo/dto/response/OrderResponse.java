@@ -11,6 +11,6 @@ public class OrderResponse {
     private Integer id;
     private Integer technicId;
     private Integer clientId;
-    private OrderStatus orderStatus;
+    private OrderStatus status;
     private Integer lastModifiedBy;
 }

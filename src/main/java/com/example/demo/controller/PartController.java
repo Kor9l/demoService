@@ -10,19 +10,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/part")
 @RequiredArgsConstructor
-public class PartController {
-    private PartService partService;
+@RequestMapping("/api/part")
+public  class PartController {
+
+    private final PartService partService;
+
 
     @GetMapping("/{id}")
     public ResponseEntity<PartResponse> findById(@PathVariable Integer id) {
+
         PartResponse partResponse = partService.getById(id);
         return new ResponseEntity<>(partResponse, HttpStatus.FOUND);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageResponse> delete(@PathVariable Integer id) {
+    public ResponseEntity<MessageResponse> deleteById(@PathVariable Integer id) {
         partService.deleteById(id);
         return new ResponseEntity<>(new MessageResponse("Delete successfully."), HttpStatus.OK);
     }

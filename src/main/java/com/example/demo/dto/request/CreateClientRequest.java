@@ -5,9 +5,10 @@ import lombok.Data;
 @Data
 public class CreateClientRequest {
 
+    private Integer id;
     private String fullName;
 
     private String email;
 
-    private Integer telNumber;
+    private Long telNumber;
 }

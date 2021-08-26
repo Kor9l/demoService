@@ -12,7 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Data
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -24,7 +24,7 @@ public class Order {
     private Integer clientId;
 
     @Column(nullable = false)
-    private OrderStatus status;
+    private OrderStatus order_status;
 
     @Column(nullable = false)
     private Long lastModifiedBy;

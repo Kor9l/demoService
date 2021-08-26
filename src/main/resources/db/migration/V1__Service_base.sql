@@ -17,7 +17,7 @@ CREATE TABLE `work` (
   `price` double NOT NULL
 );
 
-CREATE TABLE `order` (
+CREATE TABLE `orders` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `technic_id` int NOT NULL,
   `client_id` int NOT NULL,
@@ -58,16 +58,16 @@ CREATE TABLE `brand` (
 
 ALTER TABLE `technic` ADD FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`);
 
-ALTER TABLE `order` ADD FOREIGN KEY (`technic_id`) REFERENCES `technic` (`id`);
+ALTER TABLE `orders` ADD FOREIGN KEY (`technic_id`) REFERENCES `technic` (`id`);
 
-ALTER TABLE `order` ADD FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
+ALTER TABLE `orders` ADD FOREIGN KEY (`client_id`) REFERENCES `client` (`id`);
 
-ALTER TABLE `order` ADD FOREIGN KEY (`last_modified_by`) REFERENCES `user` (`id`);
+ALTER TABLE `orders` ADD FOREIGN KEY (`last_modified_by`) REFERENCES `user` (`id`);
 
 ALTER TABLE `order_parts` ADD FOREIGN KEY (`part_number`) REFERENCES `part` (`part_number`);
 
-ALTER TABLE `order_parts` ADD FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
+ALTER TABLE `order_parts` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
-ALTER TABLE `order_works` ADD FOREIGN KEY (`order_id`) REFERENCES `order` (`id`);
+ALTER TABLE `order_works` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `order_works` ADD FOREIGN KEY (`work_id`) REFERENCES `work` (`id`);

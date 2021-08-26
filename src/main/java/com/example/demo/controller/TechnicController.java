@@ -9,12 +9,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/technic")
-@RequiredArgsConstructor
-public class TechnicController {
-    private TechnicService technicService;
 
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/technic")
+public class TechnicController {
+    private final TechnicService technicService;
+    @PostMapping
+    public ResponseEntity<MessageResponse> create(@RequestBody CreateTechnicRequest createTechnicRequest){
+        technicService.create(createTechnicRequest);
+        return new ResponseEntity<>(new MessageResponse("Create successfully."),HttpStatus.OK);
+    }
     @GetMapping("/{id}")
     public ResponseEntity<TechnicResponse> findById(@PathVariable Integer id) {
         TechnicResponse technicResponse = technicService.getById(id);
@@ -22,14 +28,10 @@ public class TechnicController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<MessageResponse> delete(@PathVariable Integer id) {
+    public ResponseEntity<MessageResponse> deleteById(@PathVariable Integer id) {
         technicService.deleteById(id);
         return new ResponseEntity<>(new MessageResponse("Delete successfully."), HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<MessageResponse> create(@RequestBody CreateTechnicRequest createTechnicRequest) {
-        technicService.create(createTechnicRequest);
-        return new ResponseEntity<>(new MessageResponse("Create successfully."), HttpStatus.OK);
-    }
+
 }

@@ -9,5 +9,5 @@ public class ClientResponse {
     private Integer id;
     private String fullName;
     private String email;
-    private Integer telNumber;
+    private Long telNumber;
 }

@@ -29,19 +29,19 @@ public class Client {
         this.email = email;
     }
 
-    public Integer getTelNumber() {
+    public Long getTelNumber() {
         return telNumber;
     }
 
-    public void setTelNumber(Integer telNumber) {
+    public void setTelNumber(Long telNumber) {
         this.telNumber = telNumber;
     }
 
-    public Set<Order> getOrders() {
+    public Set<Orders> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(Set<Orders> orders) {
         this.orders = orders;
     }
 
@@ -56,8 +56,8 @@ public class Client {
     private String email;
 
     @Column(nullable = false)
-    private Integer telNumber;
+    private Long telNumber;
 
     @OneToMany(mappedBy = "client")
-    private Set<Order> orders;
+    private Set<Orders> orders;
 }

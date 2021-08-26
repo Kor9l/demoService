@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 
-import com.example.demo.domain.Order;
+import com.example.demo.domain.Orders;
 import com.example.demo.dto.request.CreateOrderRequest;
 import com.example.demo.dto.request.SearchOrderRequest;
 import com.example.demo.dto.request.UpdateOrderRequest;
@@ -25,8 +25,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse getById(Integer id) {
-        Order order = orderRepository.getById(id);
-        return orderDtoToEntityMapper.orderEntityToDto(order);
+        Orders orders = orderRepository.getById(id);
+        return orderDtoToEntityMapper.orderEntityToDto(orders);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void create(UserPrincipal userPrincipal, CreateOrderRequest createOrderRequest) {
-        Order order = orderDtoToEntityMapper.orderDtoToEntity(createOrderRequest);
-        order.setLastModifiedBy(userPrincipal.getId());
+        Orders orders = orderDtoToEntityMapper.orderDtoToEntity(createOrderRequest);
+        orders.setLastModifiedBy(userPrincipal.getId());
 
 
     }
@@ -52,14 +52,14 @@ public class OrderServiceImpl implements OrderService {
 */
     @Override
     public OrderResponse update(UserPrincipal userPrincipal, UpdateOrderRequest updateOrderRequest) {
-        Order order = orderRepository.findById(updateOrderRequest.getId())
+        Orders orders = orderRepository.findById(updateOrderRequest.getId())
                 .orElseThrow(()-> new EntityNotFoundException("Order with id:"+updateOrderRequest.getId()+" not found."));
-        order.setClientId(updateOrderRequest.getClientId());
-        order.setStatus(updateOrderRequest.getOrderStatus());
-        order.setTechnicId(updateOrderRequest.getTechnicId());
-        order.setLastModifiedBy(userPrincipal.getId());
-        orderRepository.save(order);
+        orders.setClientId(updateOrderRequest.getClientId());
+        orders.setOrder_status(updateOrderRequest.getOrder_status());
+        orders.setTechnicId(updateOrderRequest.getTechnicId());
+        orders.setLastModifiedBy(userPrincipal.getId());
+        orderRepository.save(orders);
 
-        return orderDtoToEntityMapper.orderEntityToDto(order);
+        return orderDtoToEntityMapper.orderEntityToDto(orders);
     }
 }
