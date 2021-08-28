@@ -8,6 +8,6 @@ import lombok.Data;
 public class CreateOrderRequest {
     private Integer technicId;
     private Integer clientId;
-    private OrderStatus order_status;
+    private OrderStatus orderStatus;
     private Long lastModifiedBy;
 }

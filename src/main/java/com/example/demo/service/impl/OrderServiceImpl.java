@@ -55,7 +55,7 @@ public class OrderServiceImpl implements OrderService {
         Orders orders = orderRepository.findById(updateOrderRequest.getId())
                 .orElseThrow(()-> new EntityNotFoundException("Order with id:"+updateOrderRequest.getId()+" not found."));
         orders.setClientId(updateOrderRequest.getClientId());
-        orders.setOrder_status(updateOrderRequest.getOrder_status());
+        orders.setOrderStatus(updateOrderRequest.getOrderStatus());
         orders.setTechnicId(updateOrderRequest.getTechnicId());
         orders.setLastModifiedBy(userPrincipal.getId());
         orderRepository.save(orders);

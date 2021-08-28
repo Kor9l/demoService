@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -21,7 +22,7 @@ public class Work {
 
     @Column(nullable = false)
     private Double price;
-
-    @ManyToMany(mappedBy = "order_works")
-    Set<Orders> workForOrders  = new HashSet<>();
+/*
+   @ManyToMany(mappedBy = "works")
+    private Set<Orders> orders;*/
 }

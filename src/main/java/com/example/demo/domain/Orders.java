@@ -24,7 +24,8 @@ public class Orders {
     private Integer clientId;
 
     @Column(nullable = false)
-    private OrderStatus order_status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
 
     @Column(nullable = false)
     private Long lastModifiedBy;
@@ -41,33 +42,22 @@ public class Orders {
     @JoinColumn(name = "technicId", nullable = false, updatable = false, insertable = false)
     private Technic technic;
 
-    @ManyToMany
-    @JoinTable(
-            name = "order_parts",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "part_number")
-    )
-    Set<Part> partsForOrder;
-
-    @ManyToMany
-    @JoinTable(
-            name = "order_works",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "work_id")
-    )
-    Set<Work> worksForOrder;
-
-    @ManyToMany
-    @JoinTable(name = "order_parts",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_number"))
-    private Set<Part> order_parts  = new HashSet<>();
-
-    @ManyToMany
+     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "order_works",
-            joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "work_id"))
-    private Set<Work> order_works  = new HashSet<>();
+            joinColumns = @JoinColumn(name = "order_id",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "work_id",
+                    referencedColumnName = "id"))
+    private Set<Work> works ;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "order_parts",
+            joinColumns = @JoinColumn(name = "order_id",
+                    referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "part_number",
+                    referencedColumnName = "partNumber"))
+    private Set<Part> parts ;
+
 
 
 }

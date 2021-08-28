@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -15,7 +14,7 @@ import java.util.Set;
 public class Part {
 
     @Id
-    private Integer partNumber;
+    private String partNumber;
 
     @Column(nullable = false)
     private String title;
@@ -23,8 +22,6 @@ public class Part {
     @Column(nullable = false)
     private Double price;
 
-    @ManyToMany(mappedBy = "order_parts")
-    Set<Orders> partForOrders  = new HashSet<>();
 
 
 }
